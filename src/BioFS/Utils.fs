@@ -1,6 +1,6 @@
 ﻿namespace BioFS
 
+[<AutoOpen>]
 module Utils =
     
-    let f _ = 42
-        
+    let stringToSet str = (>>) Seq.toList Set.ofSeq str

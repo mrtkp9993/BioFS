@@ -1,33 +1,37 @@
 namespace BioFS
 
-open System.Text.RegularExpressions
-
 [<AutoOpen>]
 module Types =
-
-    // Source: https://stackoverflow.com/a/68660247
-    let fastaRegexString =
-        @"
-        ^>                  # Line Starting with >
-          (.*)                 # Capture into $1
-        \r?\n               # End-of-Line
-        (                   # Capturing in $2
-            (?:
-                ^           # A Line ...
-                  [A-Z]+       # .. containing A-Z
-                \*? \r?\n   # Optional(*) followed by End-of-Line
-            )+              # ^ Multiple of those lines
-        )
-        (?:
-            (?: ^ [ \t\v\f]* \r?\n )  # Match an empty (whitespace) line ..
-            |                         # or
-            \z                        # End-of-String
-        )
-        "
 
     type SequenceType =
         | DNA
         | RNA
         | AA
+        | None
 
-    type FastASequence = { header: string; sequence: string }
+    let Alphabets: Map<SequenceType, Set<char>> =
+        [ DNA, stringToSet "ACGTMRWSYKVHDBN"
+          RNA, stringToSet "ACGUMRWSYKVHDBN"
+          AA, stringToSet "ACDEFGHIKLMNPQRSTVWY-" ]
+        |> Map.ofList
+
+    type Sequence =
+        private
+            { seq: string
+              seqtype: SequenceType }
+        static member public create(seq) =
+            let inputAlphabet = stringToSet seq
+            if Set.isProperSubset inputAlphabet Alphabets.[DNA] then
+                { seq = seq; seqtype = DNA }
+            elif Set.isProperSubset inputAlphabet Alphabets.[RNA] then
+                { seq = seq; seqtype = RNA }
+            elif Set.isProperSubset inputAlphabet Alphabets.[AA] then
+                { seq = seq; seqtype = AA }
+            else
+                invalidArg seq "Input string contains invalid characters."
+                { seq = ""; seqtype = None }
+
+        member public this.Length = this.seq.Length
+        member public this.Type = this.seqtype
+
+    type FastASequence = { header: string; sequence: Sequence }
