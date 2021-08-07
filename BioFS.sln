@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12579787-BEF3-4CC4-B239-8A9EB32A7FCA}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Library", "src\Library\Library.fsproj", "{22B6238C-166B-4734-88F5-B1F7D5683E6B}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BioFS", "src\BioFS\BioFS.fsproj", "{22B6238C-166B-4734-88F5-B1F7D5683E6B}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Library.Tests", "src\Library.Tests\Library.Tests.fsproj", "{931566F5-3535-44A5-A35C-944E481A8B06}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BioFS.Tests", "src\BioFS.Tests\BioFS.Tests.fsproj", "{931566F5-3535-44A5-A35C-944E481A8B06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

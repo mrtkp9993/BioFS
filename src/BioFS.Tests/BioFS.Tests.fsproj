@@ -10,6 +10,11 @@
   <ItemGroup>
     <Compile Include="Tests.fs" />
     <Compile Include="Program.fs" />
+    <Content Include="exampleData\NC_000017.fasta" />
+    <Content Include="exampleData\example_multiple_seq_FASTA.fasta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="exampleData\example_accession_id.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Library\Library.fsproj" />
+    <ProjectReference Include="..\BioFS\BioFS.fsproj" />
   </ItemGroup>
 
 </Project>
