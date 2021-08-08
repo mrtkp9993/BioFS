@@ -3,7 +3,8 @@
 [<AutoOpen>]
 module Utils =
     
-    let stringToSet str = (>>) Seq.toList Set.ofSeq str
+    let stringToSet (str: string): Set<char> =
+        (>>) Seq.toList Set.ofSeq str
 
-    let stringReverse (str:string) =
+    let stringReverse (str:string): string =
         System.String(str.ToCharArray() |> Array.rev)

@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <WarnOn>3390;$(WarnOn)</WarnOn>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Utils.fs" />
-    <Compile Include="Types.fs" />
-    <Compile Include="Constants.fs" />
-    <Compile Include="Sequences.fs" />
-    <Compile Include="IO.fs" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <WarnOn>3390;$(WarnOn)</WarnOn>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Utils.fs"/>
+        <Compile Include="Types.fs"/>
+        <Compile Include="Constants.fs"/>
+        <Compile Include="Sequences.fs"/>
+        <Compile Include="IO.fs"/>
+    </ItemGroup>
 </Project>

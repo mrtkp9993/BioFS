@@ -23,7 +23,7 @@ module Types =
     let Alphabets: Map<SequenceType, Set<char>> =
         [ DNA, stringToSet "ACGTMRWSYKVHDBN"
           RNA, stringToSet "ACGUMRWSYKVHDBN"
-          AA, stringToSet "ACDEFGHIKLMNPQRSTVWY-" ]
+          AA, stringToSet "ACDEFGHIKLMNPQRSTVWYX" ]
         |> Map.ofList
 
     type Sequence =
@@ -42,8 +42,17 @@ module Types =
                 invalidArg seq "Input string contains invalid characters."
                 { seq = ""; seqtype = None }
 
-        member public this.Length = this.seq.Length
+        static member public create(seq, tp) =
+            let inputAlphabet = stringToSet seq
+            if Set.isProperSubset inputAlphabet Alphabets.[tp] then
+                { seq = seq; seqtype = tp }
+            else
+                invalidArg seq "Input string contains invalid characters."
+                { seq = ""; seqtype = None }        
+        
+        member public this.Sequence = this.seq
         member public this.Type = this.seqtype
+        member public this.Length = this.seq.Length
         member public this.Replace(c1:char, c2:char) =
             {seq = this.seq.Replace(c1, c2); seqtype = this.seqtype}
         member public this.Reverse() =

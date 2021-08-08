@@ -4,7 +4,7 @@ namespace BioFS
 module Constants =
 
     // Source: https://stackoverflow.com/a/68660247
-    let internal fastaRegexString =
+    let internal fastaRegexString: string =
         @"
         ^>                  # Line Starting with >
           (.*)                 # Capture into $1
@@ -23,7 +23,7 @@ module Constants =
         )
         "
 
-    let Complements =
+    let Complements: Map<SequenceType,Map<char,char>> =
         [ DNA,
           [ 'A', 'T'
             'C', 'G'
@@ -60,7 +60,7 @@ module Constants =
           |> Map.ofList ]
         |> Map.ofList
 
-    let Codons =
+    let Codons: Map<string,char> =
         [ "GCT", 'A'
           "GCC", 'A'
           "GCA", 'A'
@@ -127,7 +127,7 @@ module Constants =
           "TGA", 'X' ]
         |> Map.ofList
 
-    let SubstitutionMatrices =
+    let SubstitutionMatrices: Map<SubsMatrixType,Map<(char * char),int>> =
         [ BLOSUM45,
           [| ('A', 'A'), 5
              ('A', 'R'), -2
