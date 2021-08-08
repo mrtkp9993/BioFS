@@ -7,4 +7,4 @@ module Utils =
         (>>) Seq.toList Set.ofSeq str
 
     let stringReverse (str:string): string =
-        System.String(str.ToCharArray() |> Array.rev)
+        str |> Seq.toArray |> Array.rev |> System.String
