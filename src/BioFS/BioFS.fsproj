@@ -9,6 +9,5 @@
     <Compile Include="Types.fs" />
     <Compile Include="Constants.fs" />
     <Compile Include="IO.fs" />
-    <Folder Include="data" />
   </ItemGroup>
 </Project>

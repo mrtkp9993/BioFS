@@ -8,6 +8,17 @@ module Types =
         | RNA
         | AA
         | None
+        
+    type SubsMatrixType =
+        | BLOSUM45
+        | BLOSUM50
+        | BLOSUM62
+        | BLOSUM80
+        | BLOSUM90
+        | BLOSUM100
+        | PAM30
+        | PAM70
+        | PAM250
 
     let Alphabets: Map<SequenceType, Set<char>> =
         [ DNA, stringToSet "ACGTMRWSYKVHDBN"
