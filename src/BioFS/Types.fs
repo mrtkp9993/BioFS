@@ -44,5 +44,9 @@ module Types =
 
         member public this.Length = this.seq.Length
         member public this.Type = this.seqtype
+        member public this.Replace(c1:char, c2:char) =
+            {seq = this.seq.Replace(c1, c2); seqtype = this.seqtype}
+        member public this.Reverse() =
+            {seq = stringReverse this.seq; seqtype = this.seqtype}
 
     type BioSequence = { header: string; sequence: Sequence }
