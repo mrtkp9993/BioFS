@@ -122,9 +122,9 @@ module Constants =
           "TGG", 'W'
           "TAT", 'Y'
           "TAC", 'Y'
-          "TAA", '-'
-          "TAG", '-'
-          "TGA", '-' ]
+          "TAA", 'X'
+          "TAG", 'X'
+          "TGA", 'X' ]
         |> Map.ofList
 
     let SubstitutionMatrices =
