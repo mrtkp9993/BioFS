@@ -45,4 +45,4 @@ module Types =
         member public this.Length = this.seq.Length
         member public this.Type = this.seqtype
 
-    type FastASequence = { header: string; sequence: Sequence }
+    type BioSequence = { header: string; sequence: Sequence }
