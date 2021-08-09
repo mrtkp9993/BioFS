@@ -8,7 +8,7 @@ module Types =
         | RNA
         | AA
         | None
-        
+
     type SubsMatrixType =
         | BLOSUM45
         | BLOSUM50
@@ -32,6 +32,7 @@ module Types =
               seqtype: SequenceType }
         static member public create(seq) =
             let inputAlphabet = stringToSet seq
+
             if Set.isProperSubset inputAlphabet Alphabets.[DNA] then
                 { seq = seq; seqtype = DNA }
             elif Set.isProperSubset inputAlphabet Alphabets.[RNA] then
@@ -44,18 +45,23 @@ module Types =
 
         static member public create(seq, tp) =
             let inputAlphabet = stringToSet seq
+
             if Set.isProperSubset inputAlphabet Alphabets.[tp] then
                 { seq = seq; seqtype = tp }
             else
                 invalidArg seq "Input string contains invalid characters."
-                { seq = ""; seqtype = None }        
-        
+                { seq = ""; seqtype = None }
+
         member public this.Sequence = this.seq
         member public this.Type = this.seqtype
         member public this.Length = this.seq.Length
-        member public this.Replace(c1:char, c2:char) =
-            {seq = this.seq.Replace(c1, c2); seqtype = this.seqtype}
+
+        member public this.Replace(c1: char, c2: char) =
+            { seq = this.seq.Replace(c1, c2)
+              seqtype = this.seqtype }
+
         member public this.Reverse() =
-            {seq = stringReverse this.seq; seqtype = this.seqtype}
+            { seq = stringReverse this.seq
+              seqtype = this.seqtype }
 
     type BioSequence = { header: string; sequence: Sequence }

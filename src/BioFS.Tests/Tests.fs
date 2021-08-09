@@ -2,6 +2,7 @@ namespace BioFS.Tests
 
 open BioFS
 open Microsoft.VisualStudio.TestTools.UnitTesting
+open Microsoft.VisualStudio.TestTools.UnitTesting
 
 [<TestClass>]
 type TestClass() =
@@ -89,3 +90,16 @@ type TestClass() =
               sequence = Sequence.create ("CCACTTGTCGTTGCCGATCTGGCTCACGGT", DNA) }
         let actualSeq = Sequences.reverseComplement dnaSeq
         Assert.AreEqual(expectedSeq.sequence, actualSeq.sequence)
+
+    [<TestMethod>]
+    member this.TestRNATranslation() =
+        let dnaSeq =
+            { header = "Example Seq1"
+              sequence = Sequence.create ("ACCGTGAGCCAGATCGGCAACGACAAGTGG", DNA) }
+        let rnaSeq = Sequences.transcript dnaSeq
+        let actualSeq = Sequences.translate rnaSeq
+        let expectedSeq = {
+            header = dnaSeq.header + " [Transcription to RNA]" + " [Translation to AA]"
+            sequence = Sequence.create("TVSQIGNDKW", AA)
+        }
+        Assert.AreEqual(expectedSeq, actualSeq)
