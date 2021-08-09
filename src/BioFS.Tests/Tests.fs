@@ -79,15 +79,17 @@ type TestClass() =
     member this.TestSubsMatricesPAM250() =
         Assert.AreEqual(SubstitutionMatrices.[PAM250].[('G', 'L')], -4)
         Assert.AreEqual(SubstitutionMatrices.[PAM250].[('E', 'I')], -2)
-    
+
     [<TestMethod>]
     member this.TestDNAReverseComplement() =
         let dnaSeq =
             { header = "Example Seq1"
               sequence = Sequence.create ("ACCGTGAGCCAGATCGGCAACGACAAGTGG", DNA) }
+
         let expectedSeq =
             { header = "Expected Seq1"
               sequence = Sequence.create ("CCACTTGTCGTTGCCGATCTGGCTCACGGT", DNA) }
+
         let actualSeq = Sequences.reverseComplement dnaSeq
         Assert.AreEqual(expectedSeq.sequence, actualSeq.sequence)
 
@@ -96,10 +98,15 @@ type TestClass() =
         let dnaSeq =
             { header = "Example Seq1"
               sequence = Sequence.create ("ACCGTGAGCCAGATCGGCAACGACAAGTGG", DNA) }
+
         let rnaSeq = Sequences.transcript dnaSeq
         let actualSeq = Sequences.translate rnaSeq
-        let expectedSeq = {
-            header = dnaSeq.header + " [Transcription to RNA]" + " [Translation to AA]"
-            sequence = Sequence.create("TVSQIGNDKW", AA)
-        }
+
+        let expectedSeq =
+            { header =
+                  dnaSeq.header
+                  + " [Transcription to RNA]"
+                  + " [Translation to AA]"
+              sequence = Sequence.create ("TVSQIGNDKW", AA) }
+
         Assert.AreEqual(expectedSeq, actualSeq)
