@@ -9,6 +9,7 @@
         <Compile Include="Types.fs"/>
         <Compile Include="Constants.fs"/>
         <Compile Include="Sequences.fs"/>
+        <Compile Include="Stats.fs"/>
         <Compile Include="IO.fs"/>
     </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 ﻿namespace BioFS
 
+[<AutoOpen>]
 module Sequences =
 
     let transcript (dnaSequence: BioSequence) : BioSequence =
@@ -49,3 +50,9 @@ module Sequences =
 
             { header = header
               sequence = Sequence.create (res, AA) }
+
+    let getKmers (k: int) (seq: BioSequence) : string [] =
+        seq.sequence.Sequence
+        |> Seq.windowed k
+        |> Seq.toArray
+        |> Array.map System.String
