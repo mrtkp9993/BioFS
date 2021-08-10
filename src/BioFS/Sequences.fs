@@ -51,7 +51,7 @@ module Sequences =
             { header = header
               sequence = Sequence.create (res, AA) }
 
-    let getKmers (k: int) (seq: BioSequence) : string [] =
+    let getKmers (seq: BioSequence) (k: int) : string [] =
         seq.sequence.Sequence
         |> Seq.windowed k
         |> Seq.toArray

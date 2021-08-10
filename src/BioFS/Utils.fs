@@ -7,3 +7,5 @@ module Utils =
 
     let stringReverse (str: string) : string =
         str |> Seq.toArray |> Array.rev |> System.String
+
+    let inline flip f x y = f y x
