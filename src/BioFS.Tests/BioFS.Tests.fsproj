@@ -8,7 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Tests.fs" />
+        <Compile Include="TestsConstants.fs" />
+        <Compile Include="TestsSequences.fs" />
+        <Compile Include="TestStats.fs" />
+        <Compile Include="TestsIO.fs" />
         <Compile Include="Program.fs" />
         <Content Include="exampleData\example_multiple_seq_FASTA.fasta">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
