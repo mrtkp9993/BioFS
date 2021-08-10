@@ -56,3 +56,18 @@ module Sequences =
         |> Seq.windowed k
         |> Seq.toArray
         |> Array.map System.String
+
+    let readingFrames (seq: BioSequence)=
+        let header = seq.header
+        let fiveToThreeSeq = seq.sequence.Sequence
+        let threeToFiveseq = (reverseComplement seq).sequence.Sequence
+        [
+            for s in [1 .. 3] ->
+                {header=header + $" [5' to 3' Frame {s}]"
+                 sequence=Sequence.create fiveToThreeSeq.[(s-1)..]}
+        ] @
+        [
+            for s in [1 .. 3] ->
+                {header=header + $" [3' to 5' Frame {s}]"
+                 sequence=Sequence.create threeToFiveseq.[(s-1)..]}
+        ]

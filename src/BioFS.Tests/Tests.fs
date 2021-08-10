@@ -132,3 +132,32 @@ type TestClass() =
         Assert.AreEqual(5, actual2merCounts.["TA"])
         Assert.AreEqual(55, actual2merCounts.["TG"])
         Assert.AreEqual(50, actual2merCounts.["AC"])
+
+    [<TestMethod>]
+    member this.TestReadingFrames() =
+        let inputStr =
+            "ATGCCCAAGCTGAATAGCGTAGAGGGGTTTTCATCATTTGAGGACGATGTATAA"
+
+        let inputDNA =
+            { header = "input"
+              sequence = Sequence.create inputStr }
+
+        Assert.AreEqual(inputDNA.sequence.Type, DNA)
+
+        let rfs = readingFrames inputDNA
+
+        let expectedSeql =
+            [| "MPKLNSVEGFSSFEDDVX"
+               "CPSXIAXRGFHHLRTMY"
+               "AQAEXRRGVFIIXGRCI"
+               "LYIVLKXXKPLYAIQLGH"
+               "YTSSSNDENPSTLFSLG"
+               "IHRPQMMKTPLRYSAWA" |]
+
+        for i in [ 0 .. 5 ] do
+            Assert.AreEqual(
+                ((>>) transcript translate rfs.[i])
+                    .sequence
+                    .Sequence,
+                expectedSeql.[i]
+            )
