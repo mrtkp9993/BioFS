@@ -37,7 +37,7 @@ type TestsSequences() =
         Assert.AreEqual(expectedSeq, actualSeq)
 
     [<TestMethod>]
-    member this.TestReadingFrames() =
+    member this.TestGetPossibleProteins() =
         let inputStr =
             "ATGCCCAAGCTGAATAGCGTAGAGGGGTTTTCATCATTTGAGGACGATGTATAA"
 
@@ -47,20 +47,15 @@ type TestsSequences() =
 
         Assert.AreEqual(inputDNA.sequence.Type, DNA)
 
-        let rfs = readingFrames inputDNA
+        let res = getPossibleProteins inputDNA
 
         let expectedSeql =
-            [| "MPKLNSVEGFSSFEDDVX"
-               "CPSXIAXRGFHHLRTMY"
-               "AQAEXRRGVFIIXGRCI"
-               "LYIVLKXXKPLYAIQLGH"
-               "YTSSSNDENPSTLFSLG"
-               "IHRPQMMKTPLRYSAWA" |]
+            [| "MPKLNSVEGFSSFEDDV"
+               "MY"
+               "MMKTPLRYSAWA" |]
 
-        for i in [ 0 .. 5 ] do
-            Assert.AreEqual(
-                ((>>) transcript translate rfs.[i])
-                    .sequence
-                    .Sequence,
+        for i in [ 0 .. 2 ] do
+            Assert.AreEqual(       
+                res.[i].sequence.Sequence,
                 expectedSeql.[i]
             )

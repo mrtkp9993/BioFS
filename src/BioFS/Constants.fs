@@ -22,6 +22,8 @@ module Constants =
             \z                        # End-of-String
         )
         "
+        
+    let internal proteinRegexString: string = @"M[ACDEFGHIKLMNPQRSTVWY]+(?=X|$)"
 
     let Complements: Map<SequenceType, Map<char, char>> =
         [ DNA,
