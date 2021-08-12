@@ -1,10 +1,10 @@
-﻿module BioFS.Tests.TestsConstants
+﻿module BioFS.Tests.TestSubstitutionMatrices
 
 open BioFS
 open Microsoft.VisualStudio.TestTools.UnitTesting
 
 [<TestClass>]
-type TestsConstants() =
+type TestSubstitutionMatrices() =
     [<TestMethod>]
     member this.TestSubsMatricesBLOSUM45() =
         Assert.AreEqual(SubstitutionMatrices.[BLOSUM45].[('S', 'P')], -1)

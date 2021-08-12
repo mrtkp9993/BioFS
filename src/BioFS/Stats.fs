@@ -7,3 +7,9 @@ module Stats =
         |> flip getKmers k
         |> Array.countBy id
         |> Map.ofArray
+
+    let NucleotideSequenceStatistics (seq : BioSequence) : Map<string, float> =
+        [
+            "Length", float(seq.sequence.Length)
+            "GC-Content", 0.0
+        ] |> Map.ofList

@@ -6,14 +6,16 @@
         <Version>0.1</Version>
     </PropertyGroup>
     <ItemGroup>
-        <Compile Include="Utils.fs"/>
-        <Compile Include="Types.fs"/>
-        <Compile Include="Constants.fs"/>
-        <Compile Include="Sequences.fs"/>
-        <Compile Include="Stats.fs"/>
-        <Compile Include="IO.fs"/>
+        <Compile Include="Utils.fs" />
+        <Compile Include="Types.fs" />
+        <Compile Include="Complements.fs" />
+        <Compile Include="RegexStrings.fs" />
+        <Compile Include="SubstitutionMatrices.fs" />
+        <Compile Include="Sequences.fs" />
+        <Compile Include="Stats.fs" />
+        <Compile Include="IO.fs" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Update="FSharp.Core" Version="5.0.2"/>
+        <PackageReference Update="FSharp.Core" Version="5.0.2" />
     </ItemGroup>
 </Project>
