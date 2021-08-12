@@ -9,3 +9,8 @@ module Utils =
         str |> Seq.toArray |> Array.rev |> System.String
 
     let inline flip f x y = f y x
+
+    let inline add x y = x + y
+    let inline multiply x y = x * y
+
+    let inline round2 (x:float): float = System.Math.Round(x, 2)
