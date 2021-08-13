@@ -37,7 +37,8 @@ module Stats =
         
     let calcExtinctionCoefficient (seq: BioSequence) : float =
         let innerPart = seq.sequence.Sequence.Substring(1, seq.sequence.Length-2)
-        let monomerCounts = getKmerCounts 1 seq
+        let innerSeq = {header=seq.header; sequence=Sequence.create innerPart}
+        let monomerCounts = getKmerCounts 1 innerSeq
         let dimerCounts = getKmerCounts 2 seq
         let sumDimer : int =
             dimerCounts

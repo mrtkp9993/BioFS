@@ -42,6 +42,6 @@ type TestsStats() =
         Assert.AreEqual(61.21, stats.["GC-Content"])
         Assert.AreEqual(215100.83, stats.["Molecular Weight"])
         Assert.AreEqual(89.03, stats.["Melting Temperature"])
-        Assert.AreEqual(6613500.0, stats.["Extinction Coefficient"])
+        Assert.AreEqual(6628300.0, stats.["Extinction Coefficient"])
         Assert.AreEqual(0.15, stats.["nmole/OD260"])
-        // Assert.AreEqual(32.52, stats.["μg/OD260"])
+        Assert.AreEqual(32.27, stats.["μg/OD260"])
