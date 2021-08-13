@@ -14,3 +14,5 @@ module Utils =
     let inline multiply x y = x * y
 
     let inline round2 (x:float): float = System.Math.Round(x, 2)
+
+    let multiplyString text times = String.replicate times text

@@ -23,3 +23,6 @@ module IO =
 
               { header = hd
                 sequence = Sequence.create sq } ]
+
+    let writeReport (report: string) (outfile: string) =
+        System.IO.File.WriteAllText(outfile, report)
