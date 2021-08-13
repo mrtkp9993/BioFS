@@ -31,3 +31,4 @@ jobs:
         PROJECT_FILE_PATH: src/BioFS/BioFS.fsproj
         PACKAGE_NAME: BioFS
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+        VERSION_REGEX: ^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$
