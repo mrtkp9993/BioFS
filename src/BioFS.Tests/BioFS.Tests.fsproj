@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <Compile Include="TestSubstitutionMatrices.fs"/>
+        <Compile Include="TestDistances.fs"/>
         <Compile Include="TestsSequences.fs"/>
         <Compile Include="TestStats.fs"/>
         <Compile Include="TestsIO.fs"/>

@@ -2,7 +2,6 @@
 
 open BioFS
 open Microsoft.VisualStudio.TestTools.UnitTesting
-open Microsoft.VisualStudio.TestTools.UnitTesting
 
 [<TestClass>]
 type TestsStats() =

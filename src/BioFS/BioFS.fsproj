@@ -10,21 +10,22 @@
         <PackageLicenseUrl>https://github.com/mrtkp9993/BioFS/blob/main/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/mrtkp9993/BioFS</RepositoryUrl>
         <PackageTags>bioinformatics, statistics, genomics, computational methods</PackageTags>
-        <PackageVersion>0.1.2</PackageVersion>
+        <PackageVersion>0.1.3</PackageVersion>
     </PropertyGroup>
     <ItemGroup>
-        <Compile Include="Utils.fs" />
-        <Compile Include="Types.fs" />
-        <Compile Include="Complements.fs" />
-        <Compile Include="RegexStrings.fs" />
-        <Compile Include="SubstitutionMatrices.fs" />
-        <Compile Include="CalculationConstants.fs" />
-        <Compile Include="Sequences.fs" />
-        <Compile Include="Stats.fs" />
-        <Compile Include="Reports.fs" />
-        <Compile Include="IO.fs" />
+        <Compile Include="Utils.fs"/>
+        <Compile Include="Types.fs"/>
+        <Compile Include="Complements.fs"/>
+        <Compile Include="RegexStrings.fs"/>
+        <Compile Include="SubstitutionMatrices.fs"/>
+        <Compile Include="CalculationConstants.fs"/>
+        <Compile Include="Distances.fs"/>
+        <Compile Include="Sequences.fs"/>
+        <Compile Include="Stats.fs"/>
+        <Compile Include="Reports.fs"/>
+        <Compile Include="IO.fs"/>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Update="FSharp.Core" Version="5.0.2" />
+        <PackageReference Update="FSharp.Core" Version="5.0.2"/>
     </ItemGroup>
 </Project>
